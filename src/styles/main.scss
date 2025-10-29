@@ -1,23 +1,133 @@
-// @import 'variables';
-// @import 'mixins';
-
-/* Override ou utilitários */
+/* ========================
+   Reset e estilos globais
+======================== */
 body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   background: #0b1220;
-  color: #e6eef8;
+  color: #ffffff; /* cor global do texto */
   min-height: 100vh;
+  margin: 0;
 }
 
-/* Card style */
+/* Links */
+a {
+  color: #ffffff; /* títulos/links */
+  text-decoration: none;
+
+  &:hover {
+    color: #f0e68c; /* hover amarelo claro */
+    text-decoration: underline;
+  }
+}
+
+/* ========================
+   Navbar e Footer
+======================== */
+.navbar, footer {
+  color: #ffffff !important;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar .nav-link,
+footer small {
+  color: #ffffff !important;
+}
+
+/* ========================
+   Cards
+======================== */
 .card {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: none;
-  .card-title { color: #fff; }
-  .card-text { color: #cbd5e1; }
+
+  .card-title {
+    color: #ffffff !important;
+  }
+
+  .card-text {
+    color: #ffffff !important;
+  }
+
+  a {
+    color: #ffffff !important;
+    &:hover {
+      color: #f0e68c !important;
+    }
+  }
 }
 
-/* Responsividade (exemplos baseados em Bootstrap breakpoints) */
+/* ========================
+   APOD específico
+======================== */
+.card .apod-title {
+  color: #ffffff !important; /* título da imagem */
+  font-weight: 700;
+  font-size: 1.5rem; /* maior destaque para título */
+  margin-bottom: 0.5rem;
+}
+
+/* força branco em toda explicação, incluindo elementos internos como <em>, <i>, <span> */
+.card .apod-description,
+.card .apod-description * {
+  color: #ffffff !important;
+  line-height: 1.6;
+}
+
+/* ========================
+   Títulos gerais
+======================== */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+/* ========================
+   Botões
+======================== */
+.btn-primary {
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+
+  &:hover {
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+  }
+}
+
+/* ========================
+   Utilitários
+======================== */
+.text-muted {
+  color: #ffffff !important; /* sobrescrevendo cinza do Bootstrap */
+}
+.card .btn-outline-warning {
+  color: #f0e68c;
+  border-color: #f0e68c;
+}
+
+.card .btn-outline-warning:hover {
+  background-color: #f0e68c;
+  color: #0b1220;
+  border-color: #f0e68c;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+.btn-outline-light.active {
+  background-color: #f0e68c;
+  color: #0b1220;
+  border-color: #f0e68c;
+}
+
+/* ========================
+   Responsividade (Bootstrap breakpoints)
+======================== */
 @media (max-width: 575.98px) {
   /* xs */
 }

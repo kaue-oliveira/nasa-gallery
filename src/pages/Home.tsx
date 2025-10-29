@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchAPOD } from "../api/nasa";
+import ImageCard from "../components/ImageCard";
 
 export default function Home() {
   const [apod, setApod] = useState<any>(null);
@@ -12,6 +13,7 @@ export default function Home() {
       setLoading(true);
       const data = await fetchAPOD(dateParam);
       setApod(data);
+      setError(""); // limpa erro ao carregar com sucesso
     } catch (e) {
       setError("Erro ao carregar dados");
     } finally {
@@ -25,33 +27,43 @@ export default function Home() {
 
   return (
     <div className="container my-4">
-      <h1>Imagem do Dia (APOD)</h1>
-      <form className="row g-2 mb-3" onSubmit={(e) => { e.preventDefault(); load(date); }}>
+      <h1 className="mb-4">Imagem do Dia (APOD)</h1>
+
+      {/* Formulário para buscar por data */}
+      <form
+        className="row g-2 mb-3"
+        onSubmit={(e) => {
+          e.preventDefault();
+          load(date);
+        }}
+      >
         <div className="col-auto">
-          <input type="date" className="form-control" value={date} onChange={(e) => setDate(e.target.value)} />
+          <input
+            type="date"
+            className="form-control"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
         </div>
         <div className="col-auto">
-          <button className="btn btn-primary" type="submit">Buscar</button>
+          <button className="btn btn-primary" type="submit">
+            Buscar
+          </button>
         </div>
       </form>
 
+      {/* Mensagens de carregamento ou erro */}
       {loading && <p>Carregando...</p>}
       {error && <div className="alert alert-danger">{error}</div>}
 
+      {/* Exibe a APOD usando ImageCard */}
       {apod && (
-        <div className="card">
-          {apod.media_type === "image" ? (
-            <img src={apod.url} className="card-img-top" alt={apod.title} />
-          ) : (
-            <div className="ratio ratio-16x9">
-              <iframe src={apod.url} title={apod.title}></iframe>
-            </div>
-          )}
-          <div className="card-body">
-            <h5>{apod.title}</h5>
-            <p>{apod.explanation}</p>
-          </div>
-        </div>
+        <ImageCard
+          title={apod.title}
+          explanation={apod.explanation}
+          url={apod.url}
+          media_type={apod.media_type}
+        />
       )}
     </div>
   );
