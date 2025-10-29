@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Rovers from "./pages/Rovers";
 import Favorites from "./pages/Favorites";
-import About from "./pages/About";
+// import About from "./pages/About";
 
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/rovers" element={<Rovers />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/about" element={<About />} /> */}
         </Routes>
       </main>
       <Footer />

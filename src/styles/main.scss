@@ -1,10 +1,31 @@
+// @import 'variables';
+// @import 'mixins';
+
+/* Override ou utilitários */
 body {
-  background-color: #0b1220;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: #0b1220;
   color: #e6eef8;
-  font-family: 'Inter', sans-serif;
   min-height: 100vh;
 }
 
-h1, h2, h3 {
-  color: #fff;
+/* Card style */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: none;
+  .card-title { color: #fff; }
+  .card-text { color: #cbd5e1; }
+}
+
+/* Responsividade (exemplos baseados em Bootstrap breakpoints) */
+@media (max-width: 575.98px) {
+  /* xs */
+}
+
+@media (min-width: 768px) {
+  /* md */
+}
+
+@media (min-width: 992px) {
+  /* lg */
 }
