@@ -42,16 +42,5 @@ VITE_NASA_API_KEY=YOUR_NASA_API_KEY
 4. Run the development server:
 npm run dev
 
-Project Structure:
-nasa-gallery/
-├─ src/
-│  ├─ api/          # Functions to fetch data from NASA APIs
-|  ├─ assets/
-│  ├─ components/   # Navbar, Footer, ImageCard
-│  ├─ pages/        # Home, Random, Favorites, Earth, About
-│  ├─ styles/       # main.scss
-│  └─ App.tsx       # Routes and main app layout
-├─ public/
-├─ package.json
-└─ README.md
+
 
